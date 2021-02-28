@@ -3,12 +3,12 @@ const templates = {};
 const _ = require('lodash');
 const errors = require('@tryghost/errors');
 const hbs = require('../engine');
-const {i18n} = require('../../../../server/lib/common');
+const {i18n} = require('../../proxy');
 
 // Execute a template helper
 // All template helpers are register as partial view.
 templates.execute = function execute(name, context, data) {
-    var partial = hbs.handlebars.partials[name];
+    const partial = hbs.handlebars.partials[name];
 
     if (partial === undefined) {
         throw new errors.IncorrectUsageError({
